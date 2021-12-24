@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.1'
+    id 'maven-publish'
 }
 
 group 'net.mikoto'
@@ -9,7 +11,21 @@ repositories {
     mavenCentral()
 }
 
+shadowJar {
+    baseName = 'http-api'
+    classifier = null
+    version = '1.0.0'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }
