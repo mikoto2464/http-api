@@ -31,7 +31,13 @@ public class Httpserver {
             e.printStackTrace();
         }
     }
-    
+
+    /**
+     * 初始化并设置端口
+     *
+     * @param port 端口
+     * @return 一个Httpserver对象
+     */
     public synchronized static Httpserver setPort(int port) {
         if (INSTANCE == null) {
             INSTANCE = new Httpserver(port);
@@ -39,6 +45,11 @@ public class Httpserver {
         return INSTANCE;
     }
 
+    /**
+     * 获取单例
+     *
+     * @return 一个Httpserver对象
+     */
     public static Httpserver getInstance() {
         return INSTANCE;
     }
