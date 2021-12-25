@@ -11,21 +11,32 @@ repositories {
     mavenCentral()
 }
 
-shadowJar {
-    baseName = 'http-api'
-    classifier = null
-    version = '1.0.0'
-}
-
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        myPublication(MavenPublication) {
+            from components.java
+            pom {
+                name = "http-api"
+                description = "Mikoto http api"
+                url = "https://www.mikoto.net.cn"
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "mikoto"
+                        name = "Zhang keshun"
+                        email = "mikoto@ungine.cn"
+                    }
+                }
+            }
         }
     }
-    repositories {
-        mavenLocal()
-    }
 }
+
 
 dependencies {
 }
